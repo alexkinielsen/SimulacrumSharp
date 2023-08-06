@@ -8,10 +8,8 @@ namespace SimulacrumSharp.Services
 {
     public class SimulacrumApiService : ISimulacrumApiService
     {
-        private static string ApiUrl = 
-            DeviceInfo.Platform.Equals(DevicePlatform.Android)
-                ? "http://10.0.2.2:5250"
-                : "https://localhost:7250";
+        private static string ApiUrl =
+            "https://simulacrum-sharp-e5429a349a79.herokuapp.com";
 
         private readonly HttpClient _client;
         private JsonSerializerOptions _serializerOptions;
