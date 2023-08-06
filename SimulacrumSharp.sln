@@ -5,7 +5,12 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacrumSharp", "SimulacrumSharp\SimulacrumSharp.csproj", "{E825826A-9610-4B77-B3B1-4813E5A86F4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulacrumSharp.SimulationAPI", "SimulacrumSharp.SimulationAPI\SimulacrumSharp.SimulationAPI.csproj", "{05E3234D-6A45-43DF-A4D0-375A2B49271A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacrumSharp.SimulationAPI", "SimulacrumSharp.SimulationAPI\SimulacrumSharp.SimulationAPI.csproj", "{05E3234D-6A45-43DF-A4D0-375A2B49271A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{62A58F23-36E1-46BD-8AB4-8B3793722310}"
+	ProjectSection(SolutionItems) = preProject
+		index.html = index.html
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
