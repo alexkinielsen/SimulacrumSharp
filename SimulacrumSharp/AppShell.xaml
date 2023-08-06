@@ -25,6 +25,11 @@
         
                 ContentTemplate="{DataTemplate views:DragRaceIndexPage}"
                 Route="DragRaceIndexPage" />
+            <ShellContent
+                Title="Big Brother"
+        
+                ContentTemplate="{DataTemplate views:BigBrotherIndexPage}"
+                Route="BigBrotherIndexPage" />
         </Tab>
     </FlyoutItem>
 </Shell>

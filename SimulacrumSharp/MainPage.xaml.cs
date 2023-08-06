@@ -23,26 +23,17 @@ public partial class MainPage : ContentPage
 
     private void OnSurvivorNavClicked(object sender, EventArgs e)
     {
-        count++;
-
-        if (count == 1)
-            SurvivorNav.Text = $"Clicked {count} time";
-        else
-            SurvivorNav.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);
+        Shell.Current.GoToAsync("SurvivorIndexPage");
     }
 
     private void OnDragRaceNavClicked(object sender, EventArgs e)
     {
-        count++;
+        Shell.Current.GoToAsync("DragRaceIndexPage");
+    }
 
-        if (count == 1)
-            DragRaceNav.Text = $"Clicked {count} time";
-        else
-            DragRaceNav.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);
+    private void OnBigBrotherNavClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("BigBrotherIndexPage");
     }
 }
 

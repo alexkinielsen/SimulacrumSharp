@@ -2,7 +2,9 @@ using Newtonsoft.Json;
 using SimulacrumSharp.SimulationAPI.Helpers;
 using SimulacrumSharp.SimulationAPI.Helpers.Interfaces;
 using SimulacrumSharp.SimulationAPI.Services.Interfaces.Simulation;
+using SimulacrumSharp.SimulationAPI.Services.Interfaces.Simulation.BigBrother;
 using SimulacrumSharp.SimulationAPI.Services.Interfaces.Simulation.Survivor;
+using SimulacrumSharp.SimulationAPI.Services.Simulation.BigBrother;
 using SimulacrumSharp.SimulationAPI.Services.Simulation.DragRace;
 using SimulacrumSharp.SimulationAPI.Services.Simulation.Survivor;
 using System.Text.Json.Serialization;
@@ -19,6 +21,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ISurvivorSimulationService, SurvivorSimulationService>();
 builder.Services.AddScoped<ITribalCouncilService, TribalCouncilService>();
 builder.Services.AddScoped<IDragRaceSimulationService, DragRaceSimulationService>();
+builder.Services.AddScoped<IBigBrotherSimulationService, BigBrotherSimulationService>();
 
 builder.Services.AddScoped<ICommonHelper, CommonHelper>();
 
