@@ -234,7 +234,7 @@ namespace SimulacrumSharp.SimulationAPI.Services.Simulation.Survivor
             };
             var castawaysVoting = tribalCouncil.CastawaysAttending;
 
-            if (votingRound.Equals(2))
+            if (roundNumber.Equals(2))
             {
                 castawaysVoting = castawaysVoting
                     .Except(eligibleCastaways.Select(x => x.Name))
