@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SimulacrumSharp.Views.SurvivorIndexPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:SimulacrumSharp.ViewModels"
+    xmlns:local="clr-namespace:SimulacrumSharp.Views"
+    Title="Survivor Simulator"
+    mc:Ignorable="d">
+
+    <ContentPage.Content>
+        <VerticalStackLayout
+            VerticalOptions="CenterAndExpand"
+            Padding="64"
+            Spacing="64">
+            <Label
+                HorizontalOptions="Center"
+                Text="Welcome to Survivor!"
+                TextColor="Green"
+                VerticalOptions="Center"/>
+
+            <Label
+                HorizontalOptions="Center"
+                Text="Click the button below to Simulate Your Reality!"
+                TextColor="Green"
+                VerticalOptions="Center"/>
+
+            <Button
+                HorizontalOptions="Center"
+                Text="Survivors ready? Go!"
+                VerticalOptions="Center"
+                Clicked="OnSimulate"/>
+
+            <Label
+                x:Name="SimulateResults"
+                Text=""
+                TextColor="Red"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
