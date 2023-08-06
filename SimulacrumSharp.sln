@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacrumSharp", "Simulacr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacrumSharp.SimulationAPI", "SimulacrumSharp.SimulationAPI\SimulacrumSharp.SimulationAPI.csproj", "{05E3234D-6A45-43DF-A4D0-375A2B49271A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{62A58F23-36E1-46BD-8AB4-8B3793722310}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutions Items", "Solutions Items", "{62A58F23-36E1-46BD-8AB4-8B3793722310}"
 	ProjectSection(SolutionItems) = preProject
 		index.html = index.html
 	EndProjectSection
