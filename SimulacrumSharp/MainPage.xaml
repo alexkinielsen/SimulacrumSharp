@@ -57,8 +57,15 @@
                 <Button 
                 x:Name="DragRaceNav"
                 Text="Drag Race"
-                SemanticProperties.Hint="Begins a DragRace simulation"
+                SemanticProperties.Hint="Begins a Drag Race simulation"
                 Clicked="OnDragRaceNavClicked"
+                HorizontalOptions="Center" />
+
+                <Button 
+                x:Name="BigBrotherNav"
+                Text="Big Brother"
+                SemanticProperties.Hint="Begins a Big Brother simulation"
+                Clicked="OnBigBrotherNavClicked"
                 HorizontalOptions="Center" />
 
             </HorizontalStackLayout>
