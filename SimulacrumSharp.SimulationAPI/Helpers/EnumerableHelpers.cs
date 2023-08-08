@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
-
-namespace SimulacrumSharp.SimulationAPI.Helpers
+﻿namespace SimulacrumSharp.SimulationAPI.Helpers
 {
     public static class EnumerableHelpers
     {
