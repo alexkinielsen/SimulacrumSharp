@@ -1,0 +1,28 @@
+﻿@inject ISimulacrumApiService _apiService
+
+@page "/survivor"
+<h1>Survivor Simulator</h1>
+
+<p>Welcome to the Survivor simulator!</p>
+
+<button class="btn btn-primary" @onclick="SimulateSeason">Survivors ready? Go!</button>
+
+<p>@result</p>
+
+@code {
+    private string result = string.Empty;
+
+    private async Task SimulateSeason()
+    {
+        var response = await _apiService.Post("SurvivorSimulation", string.Empty, new());
+
+        if (response != null)
+        {
+            result = response.ResponseBody;
+        }
+        else
+        {
+            result = "An unknown error occurred.";
+        }
+    }
+}

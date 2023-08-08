@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Components.WebView.Maui;
-using SimulacrumSharp.MAUI.Data;
+﻿using SimulacrumSharp.MAUI.Data;
+using SimulacrumSharp.MAUI.Services;
+using SimulacrumSharp.MAUI.Services.Interfaces;
 
 namespace SimulacrumSharp.MAUI
 {
@@ -19,10 +20,18 @@ namespace SimulacrumSharp.MAUI
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
+            builder.RegisterServices();
 
             builder.Services.AddSingleton<WeatherForecastService>();
 
             return builder.Build();
+        }
+
+        public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
+        {
+            mauiAppBuilder.Services.AddScoped<ISimulacrumApiService, SimulacrumApiService>();
+
+            return mauiAppBuilder;
         }
     }
 }
