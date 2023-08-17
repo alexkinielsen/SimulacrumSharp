@@ -90,7 +90,7 @@ namespace SimulacrumSharp.SimulationAPI.Services.Simulation.Survivor
                 finalists.Remove(loser);
             }
 
-            var finalNote = $"At {tribalCouncil.Name}, {finalistNames} faced a jury consisting of {juryNames}. After the jury voted, {soleSurvivor.Name} was named the winner, with {soleSurvivor.WinningVotes.Count} to win.";
+            var finalNote = $"At {tribalCouncil.Name}, {finalistNames} faced a jury consisting of {juryNames}. After the jury voted, {soleSurvivor.Name} was named the winner by a {finalVotingRound.TotalVoteCount} vote.";
             _episode.EpisodeNotes.Add(finalNote);
             Console.WriteLine(finalNote);
 
@@ -152,7 +152,7 @@ namespace SimulacrumSharp.SimulationAPI.Services.Simulation.Survivor
             {
                 var votedOut = mostVotedCastaways.Single();
 
-                var votedOutNote = $"At {tribalCouncil.Name}, {votedOut.Name} was voted out of the {tribalCouncil.AttendingTribe} Tribe.";
+                var votedOutNote = $"At {tribalCouncil.Name}, {votedOut.Name} was voted out of the {tribalCouncil.AttendingTribe} Tribe by a {initialVotingRound.TotalVoteCount} vote.";
                 _episode.EpisodeNotes.Add(votedOutNote);
                 Console.WriteLine(votedOutNote);
 
@@ -181,7 +181,7 @@ namespace SimulacrumSharp.SimulationAPI.Services.Simulation.Survivor
                 var votedOut = mostVotedCastawaysInRevote.Single();
 
                 var namesInTheRevote = _commonHelper.FormatListOfNamesString(mostVotedCastaways.Select(x => x.Name).ToList());
-                var revoteNote = $"At {tribalCouncil.Name}, after a revote between {namesInTheRevote}, {votedOut.Name} was voted out of the {tribalCouncil.AttendingTribe} Tribe.";
+                var revoteNote = $"At {tribalCouncil.Name}, after a revote between {namesInTheRevote} ({initialVotingRound.TotalVoteCount}), {votedOut.Name} was voted out of the {tribalCouncil.AttendingTribe} Tribe by a {secondVotingRound.TotalVoteCount} vote.";
                 _episode.EpisodeNotes.Add(revoteNote);
                 Console.WriteLine(revoteNote);
 
@@ -221,6 +221,7 @@ namespace SimulacrumSharp.SimulationAPI.Services.Simulation.Survivor
             }
 
             votingRound.MostVotedCastaways = votingRound.Votes.Values.Mode().ToList();
+            votingRound.TotalVoteCount = GetTotalVoteCount(votingRound.Votes.Values);
 
             tribalCouncil.VotingRounds.Add(votingRound);
             return votingRound;
@@ -234,7 +235,7 @@ namespace SimulacrumSharp.SimulationAPI.Services.Simulation.Survivor
             };
             var castawaysVoting = tribalCouncil.CastawaysAttending;
 
-            if (votingRound.Equals(2))
+            if (roundNumber.Equals(2))
             {
                 castawaysVoting = castawaysVoting
                     .Except(eligibleCastaways.Select(x => x.Name))
@@ -273,9 +274,31 @@ namespace SimulacrumSharp.SimulationAPI.Services.Simulation.Survivor
                 
             }
             votingRound.MostVotedCastaways = votingRound.Votes.Values.Mode().ToList();
+            votingRound.TotalVoteCount = GetTotalVoteCount(votingRound.Votes.Values);
 
             tribalCouncil.VotingRounds.Add(votingRound);
             return votingRound;
+        }
+
+        private string GetTotalVoteCount(ICollection<string> votes)
+        {
+            if (votes is null || votes.Count is 0)
+            {
+                return null;
+            }
+
+            var voteGroups = votes.GroupBy(x => x).OrderByDescending(x => x.Count());
+            var voteCounts = voteGroups.Select(x => x.Count());
+            if (voteCounts.Count() is 0)
+            {
+                return "unknown 0-0";
+            }
+            if (voteCounts.Count() is 1)
+            {
+                return $"unanimous {voteCounts.First()}-0";
+            }
+            var voteCountString = string.Join("-", voteCounts);
+            return voteCountString;
         }
     }
 }
