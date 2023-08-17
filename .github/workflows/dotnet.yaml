@@ -30,10 +30,10 @@ jobs:
       with:
         html_path: release/wwwroot/index.html
         base_href: release/wwwroot/
-    - name: copy index.html to 404.html
+    - name: copy release/wwwroot/index.html to release/wwwroot/404.html
       run: cp index.html 404.html
     - name: Add .nojekyll file
-      run: touch .nojekyll
+      run: touch release/wwwroot/.nojekyll
     - name: GitHub Pages
       if: success()
       uses: crazy-max/ghaction-github-pages@v1.5.1
