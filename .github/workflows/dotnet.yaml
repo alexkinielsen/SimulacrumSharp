@@ -28,7 +28,7 @@ jobs:
     - name: Rewrite base href
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
-        html_path: /index.html
+        html_path: release/wwwroot/index.html
         base_href: /
     - name: copy index.html to 404.html
       run: cp /index.html 404.html
