@@ -29,9 +29,7 @@ jobs:
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
         html_path: release/wwwroot/index.html
-        base_href: wwwroot/
-    - name: copy release/wwwroot/index.html to release/wwwroot/404.html
-      run: cp index.html 404.html
+        base_href: /
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
     - name: GitHub Pages
