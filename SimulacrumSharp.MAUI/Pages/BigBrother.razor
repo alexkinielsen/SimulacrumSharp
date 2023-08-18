@@ -1,0 +1,29 @@
+﻿@using SimulacrumSharp.MAUI.Services.Interfaces
+@inject ISimulacrumApiService _apiService
+
+@page "/bigbrother"
+<h1>Big Brother Simulator</h1>
+
+<p>Welcome to the Big Brother simulator!</p>
+
+<button class="btn btn-primary" @onclick="SimulateSeason">HouseGuests to the backyard!</button>
+
+<p>@result</p>
+
+@code {
+    private string result = string.Empty;
+
+    private async Task SimulateSeason()
+    {
+        var response = await _apiService.Post("BigBrotherSimulation", string.Empty, new());
+
+        if (response != null)
+        {
+            result = response.ResponseBody;
+        }
+        else
+        {
+            result = "An unknown error occurred.";
+        }
+    }
+}

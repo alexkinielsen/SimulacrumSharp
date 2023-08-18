@@ -1,0 +1,29 @@
+﻿@using SimulacrumSharp.MAUI.Services.Interfaces
+@inject ISimulacrumApiService _apiService
+
+@page "/dragrace"
+<h1>Drag Race Simulator</h1>
+
+<p>Welcome to the Drag Race simulator!</p>
+
+<button class="btn btn-primary" @onclick="SimulateSeason">Racers, start your engines!</button>
+
+<p>@result</p>
+
+@code {
+    private string result = string.Empty;
+
+    private async Task SimulateSeason()
+    {
+        var response = await _apiService.Post("DragRaceSimulation", string.Empty, new());
+
+        if (response != null)
+        {
+            result = response.ResponseBody;
+        }
+        else
+        {
+            result = "An unknown error occurred.";
+        }
+    }
+}
