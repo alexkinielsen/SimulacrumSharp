@@ -28,10 +28,10 @@ jobs:
     - name: Rewrite base href
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
-        html_path: ${{ env.PUBLISH_DIR }}/index.html
+        html_path: release/wwwroot/index.html
         base_href: /SimulacrumSharp/
     - name: Add .nojekyll file
-      run: touch ${{ env.PUBLISH_DIR }}/.nojekyll
+      run: touch release/wwwroot/.nojekyll
     - name: GitHub Pages
       if: success()
       uses: crazy-max/ghaction-github-pages@v1.5.1
