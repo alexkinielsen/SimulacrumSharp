@@ -37,7 +37,7 @@ jobs:
       uses: crazy-max/ghaction-github-pages@v1.5.1
       with:
         target_branch: gh-pages
-        build_dir: ${{ env.PUBLISH_DIR }}
+        build_dir: release/wwwroot
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Test
