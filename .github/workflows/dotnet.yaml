@@ -28,7 +28,7 @@ jobs:
     - name: Rewrite base href
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
-        html_path: release/wwwroot/index.html
+        html_path: wwwroot/index.html
         base_href: /
     - name: Add .nojekyll file
       run: touch .nojekyll
