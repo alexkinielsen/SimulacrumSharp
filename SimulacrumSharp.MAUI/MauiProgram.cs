@@ -17,8 +17,9 @@ namespace SimulacrumSharp.MAUI
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddBlazorWebView();
 #if DEBUG
-		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
             builder.RegisterServices();
 
