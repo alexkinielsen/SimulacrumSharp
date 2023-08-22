@@ -22,7 +22,7 @@ jobs:
     - name: Build Simulation API
       run: dotnet build ./SimulacrumSharp.SimulationAPI/SimulacrumSharp.SimulationAPI.csproj -c Release -f net6.0 --no-restore
     - name: Publish Blazor Project
-      run: dotnet publish ./SimulacrumSharp.MAUI/SimulacrumSharp.MAUI.csproj -c Release --framework net6.0 -o release --nologo
+      run: dotnet publish ./SimulacrumSharp.MAUI/SimulacrumSharp.MAUI.csproj -c Release --framework net6.0-windows10.0.19041.0 -o release --nologo
     - name: Rewrite base href
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
