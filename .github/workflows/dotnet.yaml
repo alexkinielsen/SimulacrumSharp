@@ -31,7 +31,7 @@ jobs:
         html_path: release/wwwroot/index.html
         base_href: /SimulacrumSharp/
     - name: Add .nojekyll file
-      run: touch .nojekyll
+      run: touch release/wwwroot/.nojekyll
     - name: GitHub Pages
       if: success()
       uses: crazy-max/ghaction-github-pages@v1.5.1
