@@ -1,8 +1,12 @@
-﻿using SimulacrumSharp.Backend.Models.BigBrother;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SimulacrumSharp.Backend.Models.ServiceModels
+namespace SimulacrumSharp.Backend.Models.BigBrother
 {
-    public class BigBrotherSimulationResponse
+    public class BigBrotherSeason
     {
         public List<HouseGuest> HouseGuests { get; set; }
         public string Winner { get; set; }
