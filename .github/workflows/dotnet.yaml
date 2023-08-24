@@ -22,7 +22,7 @@ jobs:
     - name: Build Razor
       run: dotnet build ./SimulacrumSharp.Razor/SimulacrumSharp.Razor.csproj -c Release -f net6.0 --no-restore
     - name: Build Web
-      run: dotnet build ./SimulacrumSharp.Web/SimulacrumSharp.Web.csproj -c Release -c Release -f net6.0 --no-restore
+      run: dotnet build ./SimulacrumSharp.Web/SimulacrumSharp.Web.csproj -c Release -f net6.0 --no-restore
     - name: Publish WebAssembly
       run: dotnet publish ./SimulacrumSharp.Web/SimulacrumSharp.WebAssembly.csproj -c Release --framework net6.0 -o release --nologo
     - name: Rewrite base href
