@@ -5,10 +5,11 @@ using SimulacrumSharp.Backend.Services.Interfaces.Simulation.Survivor;
 using SimulacrumSharp.Backend.Helpers;
 using SimulacrumSharp.Backend.Helpers.Interfaces;
 using System.Linq;
+using SimulacrumSharp.Backend.Services.Interfaces;
 
 namespace SimulacrumSharp.Backend.Services.Simulation.Survivor
 {
-    public class SurvivorSimulationService : ISurvivorSimulationService
+    public class SurvivorSimulationService : ISimulationService<SurvivorSeason>
     {
         private readonly ICommonHelper _commonHelper;
         private readonly ITribalCouncilService _tribalCouncilService;
@@ -21,7 +22,7 @@ namespace SimulacrumSharp.Backend.Services.Simulation.Survivor
             _tribalCouncilService = tribalCouncilService;
         }
 
-        public SurvivorSimulationResponse Simulate(SurvivorSimulationRequest request)
+        public SimulationResponse<SurvivorSeason> Simulate(SimulationRequest<SurvivorSeason> request)
         {
             var castaways = new List<Castaway>
             {
@@ -136,11 +137,15 @@ namespace SimulacrumSharp.Backend.Services.Simulation.Survivor
                     currentEpisode += 1;
                 }
             }
-            var response = new SurvivorSimulationResponse
+            var season = new SurvivorSeason
             {
                 Episodes = episodes.OrderBy(x => x.EpisodeNumber).ToList(),
                 Castaways = castaways.OrderBy(x => x.Placement).ToList(),
                 Winner = winner
+            };
+            var response = new SimulationResponse<SurvivorSeason>
+            {
+                Season = season
             };
             return response;
         }

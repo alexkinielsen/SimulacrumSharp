@@ -1,0 +1,28 @@
+﻿@inject IDragRaceSimulationService _simulationService
+
+@page "/dragrace"
+<h1>Drag Race Simulator</h1>
+
+<p>Welcome to the Drag Race simulator!</p>
+
+<button class="btn btn-primary" @onclick="SimulateSeason">Racers, start your engines!</button>
+
+<p>@result</p>
+
+@code {
+    private string result = string.Empty;
+
+    private void SimulateSeason()
+    {
+        var response = _simulationService.Simulate(new());
+
+        if (response != null)
+        {
+            result = JsonConvert.SerializeObject(response);
+        }
+        else
+        {
+            result = "An unknown error occurred.";
+        }
+    }
+}
