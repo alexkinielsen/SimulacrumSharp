@@ -1,0 +1,29 @@
+﻿@inject IBigBrotherSimulationService _simulationService
+
+@page "/bigbrother"
+
+<h1>Big Brother Simulator</h1>
+
+<p>Welcome to the Big Brother simulator!</p>
+
+<button class="btn btn-primary" @onclick="SimulateSeason">HouseGuests to the backyard!</button>
+
+<p>@result</p>
+
+@code {
+    private string result = string.Empty;
+
+    private void SimulateSeason()
+    {
+        var response = _simulationService.Simulate(new());
+
+        if (response != null)
+        {
+            result = JsonConvert.SerializeObject(response);
+        }
+        else
+        {
+            result = "An unknown error occurred.";
+        }
+    }
+}
