@@ -38,7 +38,7 @@ namespace SimulacrumSharp.NativeClients
         private static void RegisterServices(this MauiAppBuilder builder)
         {
             builder.Services.AddScoped<ICommonHelper, CommonHelper>();
-
+          
             builder.Services.AddScoped<ISimulationService<SurvivorSeason>, SurvivorSimulationService>();
             builder.Services.AddScoped<ITribalCouncilService, TribalCouncilService>();
 
