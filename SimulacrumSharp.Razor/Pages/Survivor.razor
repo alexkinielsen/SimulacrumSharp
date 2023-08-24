@@ -1,6 +1,7 @@
-﻿@inject ISimulationService<SurvivorSeason> _simulationService
+﻿@inject ISimulationProvider _simulationProvider
 
 @page "/survivor"
+
 <h1>Survivor Simulator</h1>
 
 <p>Welcome to the Survivor simulator!</p>
@@ -14,15 +15,6 @@
 
     private void SimulateSeason()
     {
-        var response = _simulationService.Simulate(new SimulationRequest<SurvivorSeason>());
-
-        if (response != null)
-        {
-            result = JsonConvert.SerializeObject(response);
-        }
-        else
-        {
-            result = "An unknown error occurred.";
-        }
+        result = _simulationProvider.GetSimulation<SurvivorSeason>(new SimulationRequest<SurvivorSeason>());
     }
 }

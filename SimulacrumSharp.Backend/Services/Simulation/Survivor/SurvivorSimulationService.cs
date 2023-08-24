@@ -143,7 +143,7 @@ namespace SimulacrumSharp.Backend.Services.Simulation.Survivor
                 Castaways = castaways.OrderBy(x => x.Placement).ToList(),
                 Winner = winner
             };
-            var response = new SimulationResponse<SurvivorSeason>
+            var response = new SimulationResponse<SurvivorSeason> 
             {
                 Season = season
             };

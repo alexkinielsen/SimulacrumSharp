@@ -1,4 +1,4 @@
-﻿@inject IBigBrotherSimulationService _simulationService
+﻿@inject ISimulationProvider _simulationProvider
 
 @page "/bigbrother"
 
@@ -15,15 +15,6 @@
 
     private void SimulateSeason()
     {
-        var response = _simulationService.Simulate(new());
-
-        if (response != null)
-        {
-            result = JsonConvert.SerializeObject(response);
-        }
-        else
-        {
-            result = "An unknown error occurred.";
-        }
+        result = _simulationProvider.GetSimulation<BigBrotherSeason>(new SimulationRequest<BigBrotherSeason>());
     }
 }
