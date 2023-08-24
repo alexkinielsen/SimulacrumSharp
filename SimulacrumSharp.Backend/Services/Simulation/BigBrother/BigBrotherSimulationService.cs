@@ -1,5 +1,4 @@
 ﻿using SimulacrumSharp.Backend.Helpers;
-using SimulacrumSharp.Backend.Services.Interfaces.Simulation.BigBrother;
 using SimulacrumSharp.Backend.Helpers.Interfaces;
 using System.Collections;
 using SimulacrumSharp.Backend.Models.Enums;
@@ -7,10 +6,11 @@ using SimulacrumSharp.Backend.Models.BigBrother;
 using SimulacrumSharp.Backend.Models.BigBrother.Events;
 using SimulacrumSharp.Backend.Models.ServiceModels;
 using SimulacrumSharp.Backend.Models.BigBrother.Events.Base;
+using SimulacrumSharp.Backend.Services.Interfaces;
 
 namespace SimulacrumSharp.Backend.Services.Simulation.BigBrother
 {
-    public class BigBrotherSimulationService : IBigBrotherSimulationService
+    public class BigBrotherSimulationService : ISimulationService<BigBrotherSeason>
     {
         private readonly ICommonHelper _commonHelper;
 
@@ -20,7 +20,7 @@ namespace SimulacrumSharp.Backend.Services.Simulation.BigBrother
             _commonHelper = commonHelper;
         }
 
-        public BigBrotherSimulationResponse Simulate(BigBrotherSimulationRequest request)
+        public SimulationResponse<BigBrotherSeason> Simulate(SimulationRequest<BigBrotherSeason> request)
         {
             var houseGuests = new List<HouseGuest>
             {
@@ -210,11 +210,15 @@ namespace SimulacrumSharp.Backend.Services.Simulation.BigBrother
             }
             episodes.Add(activeEpisode);
 
-            var response = new BigBrotherSimulationResponse
+            var season = new BigBrotherSeason
             {
                 Episodes = episodes.OrderBy(x => x.EpisodeNumber).ToList(),
                 HouseGuests = houseGuests.OrderBy(x => x.Placement).ToList(),
                 Winner = winner
+            };
+            var response = new SimulationResponse<BigBrotherSeason>
+            {
+                Season = season
             };
             return response;
 

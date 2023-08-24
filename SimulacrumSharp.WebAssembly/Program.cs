@@ -1,16 +1,18 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using SimulacrumSharp.WebAssembly;
 using SimulacrumSharp.Backend.Helpers;
 using SimulacrumSharp.Backend.Helpers.Interfaces;
+using SimulacrumSharp.Backend.Models.BigBrother;
+using SimulacrumSharp.Backend.Models.DragRace;
 using SimulacrumSharp.Backend.Models.Survivor;
 using SimulacrumSharp.Backend.Services.Interfaces;
-using SimulacrumSharp.Backend.Services.Interfaces.Simulation;
-using SimulacrumSharp.Backend.Services.Interfaces.Simulation.BigBrother;
 using SimulacrumSharp.Backend.Services.Interfaces.Simulation.Survivor;
 using SimulacrumSharp.Backend.Services.Simulation.BigBrother;
 using SimulacrumSharp.Backend.Services.Simulation.DragRace;
 using SimulacrumSharp.Backend.Services.Simulation.Survivor;
+using SimulacrumSharp.Razor.Helpers;
+using SimulacrumSharp.Razor.Helpers.Interfaces;
+using SimulacrumSharp.WebAssembly;
 
 internal static class Program
 {
@@ -32,12 +34,13 @@ internal static class Program
     private static void RegisterServices(this WebAssemblyHostBuilder builder)
     {
         builder.Services.AddScoped<ICommonHelper, CommonHelper>();
+        builder.Services.AddScoped<ISimulationProvider, SimulationProvider>();
 
         builder.Services.AddScoped<ISimulationService<SurvivorSeason>, SurvivorSimulationService>();
         builder.Services.AddScoped<ITribalCouncilService, TribalCouncilService>();
 
-        builder.Services.AddScoped<IDragRaceSimulationService, DragRaceSimulationService>();
+        builder.Services.AddScoped<ISimulationService<DragRaceSeason>, DragRaceSimulationService>();
 
-        builder.Services.AddScoped<IBigBrotherSimulationService, BigBrotherSimulationService>();
+        builder.Services.AddScoped<ISimulationService<BigBrotherSeason>, BigBrotherSimulationService>();
     }
 }

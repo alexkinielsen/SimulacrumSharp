@@ -1,6 +1,7 @@
-﻿@inject IDragRaceSimulationService _simulationService
+﻿@inject ISimulationProvider _simulationProvider
 
 @page "/dragrace"
+
 <h1>Drag Race Simulator</h1>
 
 <p>Welcome to the Drag Race simulator!</p>
@@ -14,15 +15,6 @@
 
     private void SimulateSeason()
     {
-        var response = _simulationService.Simulate(new());
-
-        if (response != null)
-        {
-            result = JsonConvert.SerializeObject(response);
-        }
-        else
-        {
-            result = "An unknown error occurred.";
-        }
+        result = _simulationProvider.GetSimulation<DragRaceSeason>(new SimulationRequest<DragRaceSeason>());
     }
 }
