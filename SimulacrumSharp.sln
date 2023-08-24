@@ -14,22 +14,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutions Items", "Solution
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacrumSharp.MAUI", "SimulacrumSharp.MAUI\SimulacrumSharp.MAUI.csproj", "{88F3E6B4-2F1F-4B34-9659-E71B1FB535E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulacrumSharp.NativeClients", "SimulacrumSharp.NativeClients\SimulacrumSharp.NativeClients.csproj", "{35E0D518-1566-412F-A578-401E5FBEF180}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacrumSharp.NativeClients", "SimulacrumSharp.NativeClients\SimulacrumSharp.NativeClients.csproj", "{35E0D518-1566-412F-A578-401E5FBEF180}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C23673BA-7E92-4A0E-AD41-295AC441C556} = {C23673BA-7E92-4A0E-AD41-295AC441C556}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulacrumSharp.Web", "SimulacrumSharp.Web\SimulacrumSharp.Web.csproj", "{52D08F29-2915-485E-ADDB-A143B2A6B605}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacrumSharp.Web", "SimulacrumSharp.Web\SimulacrumSharp.Web.csproj", "{52D08F29-2915-485E-ADDB-A143B2A6B605}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C23673BA-7E92-4A0E-AD41-295AC441C556} = {C23673BA-7E92-4A0E-AD41-295AC441C556}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulacrumSharp.Razor", "SimulacrumSharp.Razor\SimulacrumSharp.Razor.csproj", "{ABE5AE4C-4F3C-44DF-A12E-C55DA2E0AE15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacrumSharp.Razor", "SimulacrumSharp.Razor\SimulacrumSharp.Razor.csproj", "{ABE5AE4C-4F3C-44DF-A12E-C55DA2E0AE15}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C23673BA-7E92-4A0E-AD41-295AC441C556} = {C23673BA-7E92-4A0E-AD41-295AC441C556}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulacrumSharp.Backend", "SimulacrumSharp.Backend\SimulacrumSharp.Backend.csproj", "{C23673BA-7E92-4A0E-AD41-295AC441C556}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulacrumSharp.Backend", "SimulacrumSharp.Backend\SimulacrumSharp.Backend.csproj", "{C23673BA-7E92-4A0E-AD41-295AC441C556}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulacrumSharp.WebAssembly", "SimulacrumSharp.WebAssembly\SimulacrumSharp.WebAssembly.csproj", "{B8A00157-45F3-45DE-959E-619871A62E66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{C23673BA-7E92-4A0E-AD41-295AC441C556}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C23673BA-7E92-4A0E-AD41-295AC441C556}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C23673BA-7E92-4A0E-AD41-295AC441C556}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8A00157-45F3-45DE-959E-619871A62E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A00157-45F3-45DE-959E-619871A62E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A00157-45F3-45DE-959E-619871A62E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A00157-45F3-45DE-959E-619871A62E66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

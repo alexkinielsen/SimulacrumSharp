@@ -8,6 +8,8 @@ using SimulacrumSharp.Backend.Services.Interfaces.Simulation;
 using SimulacrumSharp.Backend.Services.Simulation.DragRace;
 using SimulacrumSharp.Backend.Services.Interfaces.Simulation.BigBrother;
 using SimulacrumSharp.Backend.Services.Simulation.BigBrother;
+using SimulacrumSharp.Backend.Models.Survivor;
+using SimulacrumSharp.Backend.Services.Interfaces;
 
 namespace SimulacrumSharp.NativeClients
 {
@@ -37,7 +39,7 @@ namespace SimulacrumSharp.NativeClients
         {
             builder.Services.AddScoped<ICommonHelper, CommonHelper>();
 
-            builder.Services.AddScoped<ISurvivorSimulationService, SurvivorSimulationService>();
+            builder.Services.AddScoped<ISimulationService<SurvivorSeason>, SurvivorSimulationService>();
             builder.Services.AddScoped<ITribalCouncilService, TribalCouncilService>();
 
             builder.Services.AddScoped<IDragRaceSimulationService, DragRaceSimulationService>();
