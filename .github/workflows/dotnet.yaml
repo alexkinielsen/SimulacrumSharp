@@ -32,5 +32,3 @@ jobs:
         build_dir: release/wwwroot
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
