@@ -17,8 +17,6 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Clean
-      run: dotnet clean -c Release
     - name: Publish WebAssembly
       run: dotnet publish ./SimulacrumSharp.WebAssembly/SimulacrumSharp.WebAssembly.csproj -c Release --framework net6.0 -o release --nologo
     - name: Rewrite base href
