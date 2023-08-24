@@ -20,7 +20,7 @@ jobs:
     - name: Clean
       run: dotnet clean -c Release
     - name: Publish WebAssembly
-      run: dotnet publish ./SimulacrumSharp.WebAssembly/SimulacrumSharp.WebAssembly.csproj -c Release --framework net6.0 -o release --nologo
+      run: dotnet publish ./SimulacrumSharp.WebAssembly/SimulacrumSharp.WebAssembly.csproj -c Release --framework net6.0 -r browser-wasm -o release --nologo
     - name: Rewrite base href
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
