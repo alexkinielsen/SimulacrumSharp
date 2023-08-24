@@ -24,7 +24,7 @@ jobs:
     - name: Build Web
       run: dotnet build ./SimulacrumSharp.Web/SimulacrumSharp.Web.csproj -c Release -f net6.0 --no-restore
     - name: Publish WebAssembly
-      run: dotnet publish ./SimulacrumSharp.Web/SimulacrumSharp.WebAssembly.csproj -c Release --framework net6.0 -o release --nologo
+      run: dotnet publish ./SimulacrumSharp.WebAssembly/SimulacrumSharp.WebAssembly.csproj -c Release --framework net6.0 -o release --nologo
     - name: Rewrite base href
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
