@@ -15,14 +15,14 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
-    - name: Install .NET Maui
-      run: dotnet workload install maui
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build Simulation API
-      run: dotnet build ./SimulacrumSharp.SimulationAPI/SimulacrumSharp.SimulationAPI.csproj -c Release -f net6.0 --no-restore
-    - name: Publish Blazor Project
-      run: dotnet publish ./SimulacrumSharp.MAUI/SimulacrumSharp.MAUI.csproj -c Release --framework net6.0-windows10.0.19041.0 -o release --nologo
+    - name: Build Backend
+      run: dotnet build ./SimulacrumSharp.Backend/SimulacrumSharp.Backend.csproj -c Release -f net6.0 --no-restore
+    - name: Build Razor
+      run: dotnet build ./SimulacrumSharp.Razor/SimulacrumSharp.Razor.csproj -c Release -f net6.0 --no-restore
+    - name: Publish Web
+      run: dotnet publish ./SimulacrumSharp.Web/SimulacrumSharp.Web.csproj -c Release --framework net6.0 -o release --nologo
     - name: Rewrite base href
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
