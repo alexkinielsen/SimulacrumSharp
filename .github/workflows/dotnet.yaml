@@ -17,12 +17,8 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build Backend
-      run: dotnet build ./SimulacrumSharp.Backend/SimulacrumSharp.Backend.csproj -c Release -f net6.0 --no-restore
-    - name: Build Razor
-      run: dotnet build ./SimulacrumSharp.Razor/SimulacrumSharp.Razor.csproj -c Release -f net6.0 --no-restore
-    - name: Build Web
-      run: dotnet build ./SimulacrumSharp.Web/SimulacrumSharp.Web.csproj -c Release -f net6.0 --no-restore
+    - name: Clean
+      run: dotnet clean -c Release
     - name: Publish WebAssembly
       run: dotnet publish ./SimulacrumSharp.WebAssembly/SimulacrumSharp.WebAssembly.csproj -c Release --framework net6.0 -o release --nologo
     - name: Rewrite base href
