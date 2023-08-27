@@ -1,7 +1,56 @@
 ﻿@page "/"
+@using SimulacrumSharp.Razor.Components
 
-<h3>Index</h3>
+<h3 class="centered"><i>Simulate Your Reality</i></h3>
+<div class="content centered">
+    <div>
+        <menu class="centered row" style="line-height:224px" @onchange="UpdateSimulators">
+
+            @foreach (var simulator in _simulators)
+            {
+                <SimulatorSelectorComponent Selector="simulator"/>
+            }
+        </menu>
+    </div>
+</div>
 
 @code {
+    public EventCallback<ChangeEventArgs> OnSelectorChanged { get; set; }
+    private IList<SimulationSelectorModel> _simulators = new List<SimulationSelectorModel>();
 
+    protected override void OnInitialized()
+    {
+        UpdateSimulators();
+    }
+
+    private void UpdateSimulators()
+    {
+        var simulators = new List<SimulationSelectorModel>()
+        {
+            new SimulationSelectorModel
+            {
+                Name = "Survivor Simulator",
+                Link = "/survivor",
+                ImageUrl = "https://upload.wikimedia.org/wikipedia/en/4/40/400px-Survivor.borneo.logo.png"
+            },
+            new SimulationSelectorModel
+            {
+                Name = "Drag Race Simulator",
+                Link = "/dragrace",
+                ImageUrl = "https://upload.wikimedia.org/wikipedia/en/b/bf/Drag_Race_franchise_logo.png"
+            },
+            new SimulationSelectorModel
+            {
+                Name = "Big Brother Simulator",
+                Link = "/bigbrother",
+                ImageUrl = "https://upload.wikimedia.org/wikipedia/en/c/ca/Big_Brother_US_2020_Logo.png"
+            }
+        };
+
+        Console.WriteLine(string.Join(' ', _simulators.Select(x => x.Name)));
+        _simulators = simulators;
+        Console.WriteLine(string.Join(' ', _simulators.Select(x => x.Name)));
+
+        OnSelectorChanged.InvokeAsync();
+    }
 }

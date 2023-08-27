@@ -1,0 +1,28 @@
+﻿@inject NavigationManager _nav
+@inherits MainLayout
+
+<div>
+    <a class="centered" href="@Selector.Link">
+        <div>
+            <img width="256" src="@Selector.ImageUrl"/>
+        </div>
+        
+        <div>
+            <button class="btn btn-primary" @onclick="@NavigateToSelection(Selector.Link)">
+                @Selector.Name
+            </button>
+        </div>
+    </a>
+</div>
+
+@code {
+    [Parameter]
+    public SimulationSelectorModel Selector { get; set; }
+
+    public Action NavigateToSelection(string selection)
+    {
+        var navigate = () => _nav.NavigateTo(selection);
+
+        return navigate;
+    }
+}

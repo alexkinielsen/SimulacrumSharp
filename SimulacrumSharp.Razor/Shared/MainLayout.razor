@@ -1,20 +1,17 @@
 ﻿@inherits LayoutComponentBase
-<center>
 
-    <div class="page bg-dark text-light">
-        <div class="sidebar">
-            <NavMenu />
-        </div>
-
-        <main>
-            <h1>Simulacrum</h1>
-
-            <article class="content px-4">
-                @Body
-            </article>
-        </main>
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
     </div>
-</center>
+
+    <main class="content centered">
+        <div class="px-4">
+            <h1>Simulacrum</h1>
+            @Body
+        </div>
+    </main>
+</div>
 
 @code {
 

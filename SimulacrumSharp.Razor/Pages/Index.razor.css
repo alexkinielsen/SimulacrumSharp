@@ -1,0 +1,14 @@
+﻿.centered {
+    align-content: center;
+    vertical-align: central;
+    text-align: center;
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
